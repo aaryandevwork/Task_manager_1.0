@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h2> <i class="fa-solid fa-list-check"></i> Advanced Task Manager</h2>
+        </div>
+
+        <div class="theme-toggle">
+            <span>Dark Mode</span>
+            <i class="fa-solid fa-circle-half-stroke"></i>
+        </div>
+    </nav>
+    <!-- main container -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <ul class="menu">
+                <li class="active">
+                    <i class="fa-solid fa-list"></i>
+                    All Tasks
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-calendar"></i>
+                    Today
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-star"></i>
+                    Important
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Completed
+                </li>
+            </ul>
+
+            <div class="projects">
+                <h4>PROJECTS</h4>
+
+                <p>No projects yet</p>
+
+                <button class="project-btn">
+                    + Add Project
+                </button>
+            </div>
+
+            <div class="stats-box">
+
+                <h4>STATISTICS</h4>
+
+                <div class="stat">
+                    <span>Total Tasks</span>
+                    <span id="totalTasks">0</span>
+                </div>
+
+                <div class="stat">
+                    <span>Completed</span>
+                    <span id="completedTasks">0</span>
+                </div>
+
+                <div class="stat">
+                    <span>Pending</span>
+                    <span id="pendingTasks">0</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <div class="top-bar">
+
+                <h1>All Tasks</h1>
+
+                <div class="actions">
+
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search tasks..."
+                    >
+
+                    <button id="openModal">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Task
+                    </button>
+
+                    <button>
+                        <i class="fa-solid fa-arrow-down-wide-short"></i>
+                        Sort
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+
+                <label>
+                    Priority:
+
+                    <select id="priorityFilter">
+                        <option value="all">All</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </label>
+
+                <label>
+                    Due Date:
+
+                    <select>
+                        <option>All</option>
+                        <option>Today</option>
+                        <option>This Week</option>
+                    </select>
+                </label>
+
+            </div>
+            <!-- <hr> -->
+            <!-- Task Container -->
+            <div id="taskContainer" class="task-container">
+
+            </div>
+
+        </main>
+
+    </div>
+</body>
+</html>
