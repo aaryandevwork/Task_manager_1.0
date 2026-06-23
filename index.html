@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
     <nav>
         <div class="logo">
@@ -92,13 +95,9 @@
 
                 <div class="actions">
 
-                    <input
-                        type="text"
-                        id="search"
-                        placeholder="Search tasks..."
-                    >
+                    <input type="text" id="search" placeholder="Search tasks...">
 
-                    <button id="openModal">
+                    <button id="openInputBox">
                         <i class="fa-solid fa-plus"></i>
                         Add Task
                     </button>
@@ -137,14 +136,68 @@
                 </label>
 
             </div>
-            <!-- <hr> -->
+            <div class="hrLine"></div>
             <!-- Task Container -->
             <div id="taskContainer" class="task-container">
-
+                <div class="taskBox">
+                    <div class="leftTaskBox">
+                        <h2>title</h2>
+                        <h3>Description</h3>
+                        <div class="taskBox-leftBottom">
+                            <h4>date</h4>
+                            <h4>category</h4>
+                        </div>
+                    </div>
+                    <div class="rightTaskBox">
+                        <input type="checkbox" name="taskCheckBox" id="taskCheckBox">
+                        <i class="ri-edit-box-line"></i>
+                        <i class="ri-delete-bin-line"></i>
+                    </div>
+                </div>
             </div>
 
         </main>
-
     </div>
+    <section class="inputSection">
+        <div class="innnerInputSection">
+
+            <div class="headerInput">
+                <h2>Add New Task</h2>
+                <i class="fa-solid fa-xmark" id="closeInput"></i>
+            </div>
+            <div class="titleInput">
+                <h3>Title</h3>
+                <input type="text" class="inputField">
+            </div>
+            <div class="descriptionInput">
+                <h3>Description</h3>
+                <textarea id="description" class="inputField" name="description" rows="4" cols="50"></textarea>
+            </div>
+            <div class="dateAndCategoryInput">
+                <div class="inputDate flexColumn">
+                    <label>Due Date</label>
+                    <input type="date" id="taskDate" class="inputField">
+                </div>
+
+                <div class="category flexColumn">
+                    <label>Category</label>
+
+                    <select id="TaskCategory" class="inputField">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+                        <option value="high">High</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="saveTask">
+                <button id="SaveInputBtn">Save Task</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </section>
 </body>
+
 </html>

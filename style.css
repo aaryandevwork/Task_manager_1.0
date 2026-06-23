@@ -3,6 +3,7 @@
     --secondary-blue: #2E354B;
     --primary-black : #111;
     --secondary-black : #252525;
+    --third-black :rgb(60, 59, 59);
     --white : white;
 }
 *{
@@ -122,6 +123,7 @@ nav{
     width: 25rem;
     border: none;
     border-radius: 0.5rem;
+    background-color: var(--third-black);
 }
 .actions button{
     background-color: var(--primary-blue);
@@ -141,4 +143,95 @@ nav{
 .filters select {
     margin-left: 8px;
     padding: 6px;
+    background-color: var(--third-black);
+    color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+
+}
+
+.hrLine{
+    width: 80%;
+    height: 0.1rem;
+    background-color: var(--third-black);
+    text-align: center;
+    margin: auto;
+}
+
+.inputSection{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 1.5rem;
+}
+.innnerInputSection{
+    background-color: var(--secondary-black);
+    padding: 3rem;
+    border-radius: 0.5rem;
+}
+.headerInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.titleInput{
+    margin-bottom: 1rem;
+}
+.titleInput h3{
+    font-weight: 400;
+}
+
+.descriptionInput{
+    margin-bottom: 1rem;
+}
+.descriptionInput h3{
+    font-weight: 400;
+}
+
+
+.dateAndCategoryInput{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 1rem;
+}
+
+.inputField{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--third-black);
+    color: var(--white);
+}
+
+.SaveInputBtn{
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+#taskContainer{
+    width: 100%;
+    background-color: #2E354B;
 }
