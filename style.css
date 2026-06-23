@@ -233,5 +233,45 @@ nav{
 
 #taskContainer{
     width: 100%;
-    background-color: #2E354B;
+    height: 100%;
+    /* background-color: #2E354B; */
+    padding: 2rem 0rem;
+}
+
+.taskBox{
+    width: 100%;
+    background-color: var(--secondary-black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.leftTaskBox h2{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.leftTaskBox h3{
+    font-size: 2rem;
+    color: rgb(129, 120, 120);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.taskBox-leftBottom{
+    display: flex;
+    gap: 5rem;
+    font-size: 1.5rem;
+    color: rgb(129, 120, 120);
+    font-weight: 500;
+}
+
+
+.rightTaskBox{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 2rem;
+    padding: 2rem;
+    cursor: pointer;
 }
