@@ -220,7 +220,7 @@ nav{
     color: var(--white);
 }
 
-.SaveInputBtn{
+#saveInputBtn{
     width: 100%;
     padding: 1rem;
     font-size: 2rem;
@@ -234,7 +234,6 @@ nav{
 #taskContainer{
     width: 100%;
     height: 100%;
-    /* background-color: #2E354B; */
     padding: 2rem 0rem;
 }
 
@@ -245,9 +244,17 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
 }
+
+.leftTaskBox{
+    display: flex;
+    flex-direction: column;
+}
+
 .leftTaskBox h2{
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -264,6 +271,7 @@ nav{
     font-size: 1.5rem;
     color: rgb(129, 120, 120);
     font-weight: 500;
+    margin-top: 3rem;
 }
 
 
@@ -272,6 +280,27 @@ nav{
     flex-direction: column;
     gap: 1.5rem;
     font-size: 2rem;
-    padding: 2rem;
+    /* padding: 2rem; */
     cursor: pointer;
+}
+
+.rightTaskBox i{
+    background-color: var(--third-black);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all ease 0.5s;
+
+}
+
+.ri-check-line:hover{
+background-color:#4c68d7;
+}
+
+.ri-edit-box-line:hover{
+    background-color: darkgoldenrod;
+}
+
+.ri-delete-bin-line:hover{
+    background-color: darkred;
 }

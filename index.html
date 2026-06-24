@@ -8,8 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
@@ -17,12 +15,13 @@
 <body>
     <nav>
         <div class="logo">
-            <h2> <i class="fa-solid fa-list-check"></i> Advanced Task Manager</h2>
+            <i class="ri-list-check-2"></i> Advanced Task Manager</h2>
         </div>
 
         <div class="theme-toggle">
             <span>Dark Mode</span>
-            <i class="fa-solid fa-circle-half-stroke"></i>
+            <i class="ri-sun-fill"></i>
+            <i class="ri-moon-fill"></i>
         </div>
     </nav>
     <!-- main container -->
@@ -33,22 +32,22 @@
 
             <ul class="menu">
                 <li class="active">
-                    <i class="fa-solid fa-list"></i>
+                    <i class="ri-list-check"></i>
                     All Tasks
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-calendar"></i>
+                    <i class="ri-calendar-line"></i>
                     Today
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="ri-star-line"></i>
                     Important
                 </li>
 
                 <li>
-                    <i class="fa-solid fa-circle-check"></i>
+                    <i class="ri-checkbox-circle-fill"></i>
                     Completed
                 </li>
             </ul>
@@ -98,12 +97,12 @@
                     <input type="text" id="search" placeholder="Search tasks...">
 
                     <button id="openInputBox">
-                        <i class="fa-solid fa-plus"></i>
+                        <i class="ri-add-line"></i>
                         Add Task
                     </button>
 
                     <button>
-                        <i class="fa-solid fa-arrow-down-wide-short"></i>
+                        <i class="ri-sort-desc"></i>
                         Sort
                     </button>
 
@@ -140,7 +139,7 @@
             
             <!-- Task Container -->
             <div id="taskContainer" class="task-container">
-                <div class="taskBox">
+                <!-- <div class="taskBox">
                     <div class="leftTaskBox">
                         <h2>Learning HTML</h2>
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero omnis veritatis autem?</h3>
@@ -150,11 +149,11 @@
                         </div>
                     </div>
                     <div class="rightTaskBox">
-                        <input type="checkbox" name="taskCheckBox" id="taskCheckBox">
+                        <i class="ri-check-line"></i>
                         <i class="ri-edit-box-line"></i>
                         <i class="ri-delete-bin-line"></i>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </main>
@@ -164,11 +163,11 @@
 
             <div class="headerInput">
                 <h2>Add New Task</h2>
-                <i class="fa-solid fa-xmark" id="closeInput"></i>
+                <i class="ri-close-large-line" id="closeInput"></i>
             </div>
             <div class="titleInput">
                 <h3>Title</h3>
-                <input type="text" class="inputField">
+                <input type="text" class="inputField" id="taskTitle">
             </div>
             <div class="descriptionInput">
                 <h3>Description</h3>
@@ -194,11 +193,11 @@
                 </div>
             </div>
             <div class="saveTask">
-                <button id="SaveInputBtn">Save Task</button>
+                <button id="saveInputBtn">Save Task</button>
             </div>
         </div>
-        <script src="script.js"></script>
     </section>
+    <script src="script.js"></script>
 </body>
 
 </html>
