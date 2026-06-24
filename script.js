@@ -14,7 +14,7 @@ let taskContainer = document.querySelector("#taskContainer")
 
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 
-openInputBox.addEventListener('click', () =>{
+openInputBox.addEventListener('click', () => {
     inputSection.style.display = "flex";
     // renderTask();
 })
@@ -32,23 +32,22 @@ saveInputBtn.addEventListener('click', () => {
     let category = taskCategory.value;
 
     if (!title || !description || !date || !category) {
-    alert("Please fill all fields");
-    return;
-}
+        alert("Please fill all fields");
+        return;
+    }
 
     let task = {
-        id : Date.now(),
+        id: Date.now(),
         title,
         description,
         date,
         category,
-        completed : false
+        completed: false
     }
 
     taskList.push(task);
-    // localStorage.setItem("products", JSON.stringify(productsArr));
     localStorage.setItem("tasks", JSON.stringify(taskList));
-    
+
 
     renderTask();
     console.log(taskList);
@@ -61,42 +60,180 @@ saveInputBtn.addEventListener('click', () => {
 })
 
 
-function renderTask(){
+function renderTask(tasks = taskList) {
     taskContainer.innerHTML = "";
-    taskList.forEach((elem,index) => {
-        taskContainer.innerHTML +=`
-        <div class="taskBox">
-                    <div class="leftTaskBox">
-                        <h2>${elem.title}</h2>
-                        <h3>${elem.description}</h3>
-                        <div class="taskBox-leftBottom">
-                            <h4><i class="ri-calendar-line"></i> ${elem.date}</h4>
-                            <h4><i class="ri-menu-search-line"></i>${elem.category}</h4>
-                        </div>
-                    </div>
-                    <div class="rightTaskBox">
-                        <i class="ri-check-line"></i>
-                        <i class="ri-edit-box-line"></i>
-                        <i onclick="deleteTask(${index})" class="ri-delete-bin-line"></i>
+
+    tasks.forEach((elem, index) => {
+        taskContainer.innerHTML += `
+            <div class="taskBox">
+                <div class="leftTaskBox">
+                    <h2 class="taskTitle ${elem.completed ? 'completed' : ''}">${elem.title}</h2>
+
+                    <h3 class="taskDescription ${elem.completed ? 'completed' : ''}">
+                        ${elem.description}
+                    </h3>
+
+                    <div class="taskBox-leftBottom">
+                        <h4>
+                            <i class="ri-calendar-line"></i>
+                            <span class="taskDate">${elem.date}</span>
+                        </h4>
+
+                        <h4>
+                            <i class="ri-menu-search-line"></i>
+                            <span class="taskCategory">${elem.category}</span>
+                        </h4>
                     </div>
                 </div>
+
+                <div class="rightTaskBox">
+                    <i onclick="toggleComplete(${index})" class="ri-check-line ${elem.completed ? 'done' : ''}"></i>
+
+                    <i onclick="editTask(${index}, this)"
+                       class="ri-edit-box-line"></i>
+
+                    <i onclick="deleteTask(${index})"
+                       class="ri-delete-bin-line"></i>
+                </div>
+            </div>
         `;
     });
 }
 
-function deleteTask(index){
-    taskList.splice(index,1);
-    localStorage.setItem("tasks",JSON.stringify(taskList));
+function editTask(index, btn) {
+
+    const taskBox = btn.closest(".taskBox");
+
+    const title = taskBox.querySelector(".taskTitle");
+    const description = taskBox.querySelector(".taskDescription");
+
+    title.contentEditable = true;
+    description.contentEditable = true;
+
+    title.focus();
+
+    btn.classList.remove("ri-edit-box-line");
+    btn.classList.add("ri-save-line");
+
+    btn.title = "Save Changes";
+
+    btn.onclick = function () {
+        updateTask(index, taskBox, btn);
+    };
+}
+
+
+function updateTask(index, taskBox, btn) {
+
+    const title =
+        taskBox.querySelector(".taskTitle").textContent.trim();
+
+    const description =
+        taskBox.querySelector(".taskDescription").textContent.trim();
+
+    taskList[index].title = title;
+    taskList[index].description = description;
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(taskList)
+    );
+
+    taskBox.querySelector(".taskTitle").contentEditable = false;
+    taskBox.querySelector(".taskDescription").contentEditable = false;
+
+    btn.classList.remove("ri-save-line");
+    btn.classList.add("ri-edit-box-line");
+
+    btn.onclick = function () {
+        editTask(index, btn);
+    };
+}
+
+
+function deleteTask(index) {
+    taskList.splice(index, 1);
+    localStorage.setItem("tasks", JSON.stringify(taskList));
     renderTask();
 }
 
+function toggleComplete(index) {
+
+    taskList[index].completed =
+        !taskList[index].completed;
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(taskList)
+    );
+
+    renderTask();
+}
+ 
+
+
+const dateFilter = document.querySelector("#dateFilter");
+const filterCategory = document.querySelector("#filterCategory");
+
+
+filterCategory.addEventListener(
+    "change",
+    filterTasks
+);
+
+dateFilter.addEventListener(
+    "change",
+    filterTasks
+);
+
+function filterTasks() {
+
+    const category = filterCategory.value;
+    const dateValue = dateFilter.value;
+
+    const today = new Date();
+
+    const filteredTasks = taskList.filter(task => {
+
+        let categoryMatch =
+            category === "all" ||
+            task.category === category;
+
+        let dateMatch = true;
+
+        const taskDate = new Date(task.date);
+
+        if (dateValue === "today") {
+            dateMatch =
+                taskDate.toDateString() ===
+                today.toDateString();
+        }
+
+        if (dateValue === "week") {
+
+            const firstDay = new Date(today);
+
+            firstDay.setDate(
+                today.getDate() - today.getDay()
+            );
+
+            const lastDay = new Date(firstDay);
+
+            lastDay.setDate(
+                firstDay.getDate() + 6
+            );
+
+            dateMatch =
+                taskDate >= firstDay &&
+                taskDate <= lastDay;
+        }
+
+        return categoryMatch && dateMatch;
+    });
+
+    renderTask(filteredTasks);
+}
+
+
+
 renderTask();
-
-// console.log(innnerInputSection)
-
-// innnerInputSection.addEventListener("click", (event) => {
-//     console.log(event.target)
-
-// })
-
-// console.log(taskContainer);
