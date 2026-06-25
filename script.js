@@ -14,6 +14,7 @@ let taskContainer = document.querySelector("#taskContainer")
 
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 
+// input section open and close
 openInputBox.addEventListener('click', () => {
     inputSection.style.display = "flex";
     // renderTask();
@@ -23,6 +24,8 @@ closeInput.addEventListener('click', () => {
     inputSection.style.display = "none";
 })
 
+
+//save btn in input section
 saveInputBtn.addEventListener('click', () => {
     console.log("clicked");
 
@@ -59,7 +62,7 @@ saveInputBtn.addEventListener('click', () => {
 
 })
 
-
+//Main render function
 function renderTask(tasks = taskList) {
     taskContainer.innerHTML = "";
 
@@ -100,6 +103,7 @@ function renderTask(tasks = taskList) {
     });
 }
 
+//Task edit function
 function editTask(index, btn) {
 
     const taskBox = btn.closest(".taskBox");
@@ -151,12 +155,14 @@ function updateTask(index, taskBox, btn) {
 }
 
 
+//task delete function
 function deleteTask(index) {
     taskList.splice(index, 1);
     localStorage.setItem("tasks", JSON.stringify(taskList));
     renderTask();
 }
 
+//task complete mark function
 function toggleComplete(index) {
 
     taskList[index].completed =
@@ -171,7 +177,7 @@ function toggleComplete(index) {
 }
  
 
-
+//filtering function
 const dateFilter = document.querySelector("#dateFilter");
 const filterCategory = document.querySelector("#filterCategory");
 
@@ -380,7 +386,6 @@ const themeBtn = document.querySelector(".theme-toggle");
 themeBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("light-theme");
-    // document.body.classList.toggle("dark-theme");
 
     if (document.body.classList.contains("light-theme")) {
         localStorage.setItem("theme", "light");
