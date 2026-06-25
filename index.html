@@ -18,11 +18,14 @@
             <i class="ri-list-check-2"></i> Advanced Task Manager</h2>
         </div>
 
-        <div class="theme-toggle">
+        <!-- <div class="theme-toggle">
             <span>Dark Mode</span>
             <i class="ri-sun-fill"></i>
             <i class="ri-moon-fill"></i>
-        </div>
+        </div> -->
+        <button id="themeBtn">
+            🌙
+        </button>
     </nav>
     <!-- main container -->
     <div class="container">
@@ -31,36 +34,27 @@
         <aside class="sidebar">
 
             <ul class="menu">
-                <li class="active">
+                <li class=" allTask active">
                     <i class="ri-list-check"></i>
                     All Tasks
                 </li>
 
-                <li>
+                <li class="today">
                     <i class="ri-calendar-line"></i>
                     Today
                 </li>
 
-                <li>
+                <li class="Important">
                     <i class="ri-star-line"></i>
                     Important
                 </li>
 
-                <li>
+                <li class="Completed">
                     <i class="ri-checkbox-circle-fill"></i>
                     Completed
                 </li>
             </ul>
 
-            <div class="projects">
-                <h4>PROJECTS</h4>
-
-                <p>No projects yet</p>
-
-                <button class="project-btn">
-                    + Add Project
-                </button>
-            </div>
 
             <div class="stats-box">
 
@@ -91,7 +85,6 @@
             <div class="top-bar">
 
                 <h1>All Tasks</h1>
-
                 <div class="actions">
 
                     <input type="text" id="search" placeholder="Search tasks...">
@@ -101,10 +94,10 @@
                         Add Task
                     </button>
 
-                    <button>
+                    <!-- <button>
                         <i class="ri-sort-desc"></i>
                         Sort
-                    </button>
+                    </button> -->
 
                 </div>
 

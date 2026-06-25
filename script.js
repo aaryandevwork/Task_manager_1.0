@@ -74,14 +74,14 @@ function renderTask(tasks = taskList) {
                     </h3>
 
                     <div class="taskBox-leftBottom">
-                        <h4>
+                        <h4 class="taskBox-leftBottom-Date">
                             <i class="ri-calendar-line"></i>
                             <span class="taskDate">${elem.date}</span>
                         </h4>
 
-                        <h4>
+                        <h4 class="taskBox-leftBottom-Category category-${elem.category}">
                             <i class="ri-menu-search-line"></i>
-                            <span class="taskCategory">${elem.category}</span>
+                            <span class="taskCategory ">${elem.category}</span>
                         </h4>
                     </div>
                 </div>
@@ -236,4 +236,140 @@ function filterTasks() {
 
 
 
+// search feature implimentation
+const searchTask = document.querySelector("#search");
+
+searchTask.addEventListener("input", () => {
+
+    const searchValue =
+        searchTask.value.toLowerCase();
+
+    const filteredTasks = taskList.filter(task => {
+
+        return (
+            task.title
+                .toLowerCase()
+                .includes(searchValue) ||
+
+            task.description
+                .toLowerCase()
+                .includes(searchValue)
+        );
+    });
+
+    renderTask(filteredTasks);
+});
+
+
+//allTask feature
+let allTask = document.querySelector(".allTask")
+
+allTask.addEventListener("click", () => {
+    allTask.classList.toggle('active');
+
+    todaybtn.classList.remove('active');
+    importantBtn.classList.remove('active');
+
+    renderTask();
+})
+
+
+// today filter
+let todaybtn = document.querySelector(".today");
+
+todaybtn.addEventListener("click", () => {
+
+    const today = new Date();
+
+    let filteredTasks = taskList.filter(task => {
+
+        const taskDate = new Date(task.date);
+
+        return (
+            taskDate.toDateString() ===
+            today.toDateString()
+        );
+    });
+
+    console.log(filteredTasks);
+
+    todaybtn.classList.add('active');
+
+    importantBtn.classList.remove('active');
+    allTask.classList.remove('active');
+
+    renderTask(filteredTasks);
+});
+
+
+
+// Important filter
+let importantBtn = document.querySelector(".Important");
+// console.log(importantBtn)
+
+importantBtn.addEventListener("click", () => {
+    
+    const filteredTasks = taskList.filter(task => {
+        return task.category === 'high';
+    });
+
+    importantBtn.classList.add('active')
+
+    todaybtn.classList.remove('active');
+    allTask.classList.remove('active');
+    Completedbtn.classList.remove('active');
+
+    renderTask(filteredTasks);
+})
+
+
+//Completed feature
+
+let Completedbtn = document.querySelector(".Completed");
+
+Completedbtn.addEventListener("click", () => {
+
+    let filteredTasks = taskList.filter(task => {
+        return task.completed === true;
+    })
+
+    Completedbtn.classList.add('active')
+
+    todaybtn.classList.remove('active');
+    allTask.classList.remove('active');
+    importantBtn.classList.remove('active');
+
+    renderTask(filteredTasks);
+})
+
+
+// statistics add
+let totalTasksNumber = document.querySelector("#totalTasks")
+let completedTasksNumber = document.querySelector("#completedTasks")
+let pendingTasksNumber = document.querySelector("#pendingTasks")
+
+
+let addStatistics = () => {
+    totalTasksNumber.textContent = taskList.length;
+
+    
+    const pompletedTasks = taskList.filter(task => {
+        return task.completed === true;
+    });
+    
+    completedTasksNumber.textContent = pompletedTasks.length;
+    
+    // completedTasksNumber.textContent = taskList.filter(task => task.completed).length;
+
+    const pendingTasks = taskList.filter(task => {
+        return task.completed === false;
+    });
+    
+    pendingTasksNumber.textContent = pendingTasks.length;
+
+}
+
+addStatistics();
+
+// initial render 
 renderTask();
