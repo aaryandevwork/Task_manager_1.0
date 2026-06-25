@@ -5,16 +5,39 @@
     --secondary-black : #252525;
     --third-black :rgb(60, 59, 59);
     --white : white;
+
+    --low-background : #2B3C36;
+    --low-text : #10c010;
+
+    --medium-background : #413C2E;
+    --medium-text : #c2920e;
+
+    --high-background : #40302E;
+    --high-text : #cb2711;
+
+    --red : red;
 }
 .light-theme {
     --primary-blue: #4c68d7;
     --secondary-blue: #dbe4ff;
-
-    --primary-black: #f5f5f5;
+    
+    --primary-black: #cecece;
     --secondary-black: #ffffff;
     --third-black: #e8e8e8;
-
+    
     --white: #111;
+    
+    --low-background : #85beaa;
+    --low-text : #10c010;
+    
+    --medium-background : #c3b283;
+    --medium-text : #c2920e;
+    
+    --high-background : #c18b84;
+    --high-text : #cb2711;
+    
+    --second-white : white;
+    --red : rgb(173, 68, 68);
 }
 
 *{
@@ -25,25 +48,30 @@
 
 html,body{
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     font-size:62.5%;
     font-family: Poppins, sans-serif;
     background: var(--primary-black);
     color: var(--white);
 }
 
+.mainContainer{
+    width: 100%;
+    min-height: 100%;
+}
+
 /* // ########################################################  nav bar */
 nav{
     width: 100%;
-    height: 10%;
+    height: 72px;
     background-color: var(--primary-blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    /* color: white; */
     position: sticky;
     top: 0;
+    color: white;
 }
 .logo {
     font-size: 2rem;
@@ -318,16 +346,16 @@ nav{
 }
 
 .category-low{
-    background-color: #2B3C36;
-    color: #10c010;
+    background-color: var(--low-background);
+    color: var(--low-text);
 }
 .category-medium{
-    background-color: #413C2E;
-    color: #c2920e;
+    background-color: var(--medium-background);
+    color: var(--medium-text);
 }
 .category-high{
-    background-color: #40302E;
-    color: #cb2711;
+    background-color: var(--high-background);
+    color: var(--high-text);
 }
 
 .rightTaskBox{
@@ -348,15 +376,18 @@ nav{
 }
 
 .ri-check-line{
-background-color:#4c68d7;
+    background-color:#4c68d7;
+    color:white;
 }
 
 .ri-edit-box-line{
     background-color: darkgoldenrod;
+    color: white;
 }
 
 .ri-delete-bin-line{
-    background-color: darkred;
+    background-color: var(--red);
+    color: white;
 }
 .ri-save-line{
     background-color: greenyellow;

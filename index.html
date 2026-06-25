@@ -13,126 +13,127 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <i class="ri-list-check-2"></i> Advanced Task Manager</h2>
-        </div>
+    <div class="mainContainer">
 
-        <!-- <div class="theme-toggle">
-            <span>Dark Mode</span>
-            <i class="ri-sun-fill"></i>
-            <i class="ri-moon-fill"></i>
-        </div> -->
-        <button id="themeBtn">
-            🌙
-        </button>
-    </nav>
-    <!-- main container -->
-    <div class="container">
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-
-            <ul class="menu">
-                <li class=" allTask active">
-                    <i class="ri-list-check"></i>
-                    All Tasks
-                </li>
-
-                <li class="today">
-                    <i class="ri-calendar-line"></i>
-                    Today
-                </li>
-
-                <li class="Important">
-                    <i class="ri-star-line"></i>
-                    Important
-                </li>
-
-                <li class="Completed">
-                    <i class="ri-checkbox-circle-fill"></i>
-                    Completed
-                </li>
-            </ul>
-
-
-            <div class="stats-box">
-
-                <h4>STATISTICS</h4>
-
-                <div class="stat">
-                    <span>Total Tasks</span>
-                    <span id="totalTasks">0</span>
-                </div>
-
-                <div class="stat">
-                    <span>Completed</span>
-                    <span id="completedTasks">0</span>
-                </div>
-
-                <div class="stat">
-                    <span>Pending</span>
-                    <span id="pendingTasks">0</span>
-                </div>
-
+        <nav>
+            <div class="logo">
+                <i class="ri-list-check-2"></i> Advanced Task Manager</h2>
             </div>
 
-        </aside>
+            <div class="theme-toggle">
+                <span>Mode</span>
+                <i class="ri-sun-fill"></i>
+            </div>
+            <!-- <button id="themeBtn">
+            🌙
+        </button> -->
+        </nav>
+        <!-- main container -->
+        <div class="container">
 
-        <!-- Main Content -->
-        <main class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
 
-            <div class="top-bar">
+                <ul class="menu">
+                    <li class=" allTask active">
+                        <i class="ri-list-check"></i>
+                        All Tasks
+                    </li>
 
-                <h1>All Tasks</h1>
-                <div class="actions">
+                    <li class="today">
+                        <i class="ri-calendar-line"></i>
+                        Today
+                    </li>
 
-                    <input type="text" id="search" placeholder="Search tasks...">
+                    <li class="Important">
+                        <i class="ri-star-line"></i>
+                        Important
+                    </li>
 
-                    <button id="openInputBox">
-                        <i class="ri-add-line"></i>
-                        Add Task
-                    </button>
+                    <li class="Completed">
+                        <i class="ri-checkbox-circle-fill"></i>
+                        Completed
+                    </li>
+                </ul>
 
-                    <!-- <button>
+
+                <div class="stats-box">
+
+                    <h4>STATISTICS</h4>
+
+                    <div class="stat">
+                        <span>Total Tasks</span>
+                        <span id="totalTasks">0</span>
+                    </div>
+
+                    <div class="stat">
+                        <span>Completed</span>
+                        <span id="completedTasks">0</span>
+                    </div>
+
+                    <div class="stat">
+                        <span>Pending</span>
+                        <span id="pendingTasks">0</span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!-- Main Content -->
+            <main class="content">
+
+                <div class="top-bar">
+
+                    <h1>All Tasks</h1>
+                    <div class="actions">
+
+                        <input type="text" id="search" placeholder="Search tasks...">
+
+                        <button id="openInputBox">
+                            <i class="ri-add-line"></i>
+                            Add Task
+                        </button>
+
+                        <!-- <button>
                         <i class="ri-sort-desc"></i>
                         Sort
                     </button> -->
 
+                    </div>
+
                 </div>
 
-            </div>
+                <!-- Filters -->
+                <div class="filters">
 
-            <!-- Filters -->
-            <div class="filters">
+                    <label>
+                        Priority:
 
-                <label>
-                    Priority:
+                        <select id="filterCategory">
+                            <option value="all">All</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </label>
 
-                    <select id="filterCategory">
-                        <option value="all">All</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                </label>
+                    <label>
+                        Due Date:
 
-                <label>
-                    Due Date:
+                        <select id="dateFilter">
+                            <option value="all">All</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                        </select>
+                    </label>
 
-                    <select id="dateFilter">
-                        <option value="all">All</option>
-                        <option value="today">Today</option>
-                        <option value="week">This Week</option>
-                    </select>
-                </label>
+                </div>
+                <div class="hrLine"></div>
 
-            </div>
-            <div class="hrLine"></div>
-
-            <!-- Task Container -->
-            <div id="taskContainer" class="task-container">
-                <!-- <div class="taskBox">
+                <!-- Task Container -->
+                <div id="taskContainer" class="task-container">
+                    <!-- <div class="taskBox">
                     <div class="leftTaskBox">
                         <h2>Learning HTML</h2>
                         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero omnis veritatis autem?</h3>
@@ -147,49 +148,50 @@
                         <i class="ri-delete-bin-line"></i>
                     </div>
                 </div> -->
-            </div>
-
-        </main>
-    </div>
-    <section class="inputSection">
-        <div class="innnerInputSection">
-
-            <div class="headerInput">
-                <h2>Add New Task</h2>
-                <i class="ri-close-large-line" id="closeInput"></i>
-            </div>
-            <div class="titleInput">
-                <h3>Title</h3>
-                <input type="text" class="inputField" id="taskTitle">
-            </div>
-            <div class="descriptionInput">
-                <h3>Description</h3>
-                <textarea id="description" class="inputField" name="description" rows="4" cols="50"></textarea>
-            </div>
-            <div class="dateAndCategoryInput">
-                <div class="inputDate flexColumn">
-                    <label>Due Date</label>
-                    <input type="date" id="taskDate" class="inputField">
                 </div>
 
-                <div class="category flexColumn">
-                    <label>Category</label>
-
-                    <select id="TaskCategory" class="inputField">
-                        <option value="low">Low</option>
-                        <option value="medium" selected>
-                            Medium
-                        </option>
-                        <option value="high">High</option>
-                    </select>
-
-                </div>
-            </div>
-            <div class="saveTask">
-                <button id="saveInputBtn">Save Task</button>
-            </div>
+            </main>
         </div>
-    </section>
+        <section class="inputSection">
+            <div class="innnerInputSection">
+
+                <div class="headerInput">
+                    <h2>Add New Task</h2>
+                    <i class="ri-close-large-line" id="closeInput"></i>
+                </div>
+                <div class="titleInput">
+                    <h3>Title</h3>
+                    <input type="text" class="inputField" id="taskTitle">
+                </div>
+                <div class="descriptionInput">
+                    <h3>Description</h3>
+                    <textarea id="description" class="inputField" name="description" rows="4" cols="50"></textarea>
+                </div>
+                <div class="dateAndCategoryInput">
+                    <div class="inputDate flexColumn">
+                        <label>Due Date</label>
+                        <input type="date" id="taskDate" class="inputField">
+                    </div>
+
+                    <div class="category flexColumn">
+                        <label>Category</label>
+
+                        <select id="TaskCategory" class="inputField">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>
+                                Medium
+                            </option>
+                            <option value="high">High</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="saveTask">
+                    <button id="saveInputBtn">Save Task</button>
+                </div>
+            </div>
+        </section>
+    </div>
     <script src="script.js"></script>
 </body>
 
