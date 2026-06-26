@@ -1,8 +1,8 @@
 :root {
     --primary-blue: #4c68d7;
     --secondary-blue: #2E354B;
-    --primary-black : #111;
-    --secondary-black : #252525;
+    --primary-background : #111;
+    --secondary-background : #252525;
     --third-black :rgb(60, 59, 59);
     --white : white;
 
@@ -21,8 +21,8 @@
     --primary-blue: #4c68d7;
     --secondary-blue: #dbe4ff;
     
-    --primary-black: #cecece;
-    --secondary-black: #ffffff;
+    --primary-background: #cecece;
+    --secondary-background: #ffffff;
     --third-black: #e8e8e8;
     
     --white: #111;
@@ -51,7 +51,7 @@ html,body{
     min-height: 100vh;
     font-size:62.5%;
     font-family: Poppins, sans-serif;
-    background: var(--primary-black);
+    background: var(--primary-background);
     color: var(--white);
 }
 
@@ -97,7 +97,7 @@ nav{
 .sidebar{
     height: 90%;
     width: 15%;
-    background-color: var(--secondary-black);
+    background-color: var(--secondary-background);
     font-size: 1.6rem;
     padding: 2rem;
     position: fixed;
@@ -177,14 +177,13 @@ nav{
     border: none;
     border-radius: 0.5rem;
     background-color: var(--third-black);
-    color: white;
 }
 
 .actions button{
     background-color: var(--primary-blue);
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
-    color: var(--white);
+    color: white;
     border: none;
 }
 
@@ -230,7 +229,7 @@ nav{
     font-size: 1.5rem;
 }
 .innnerInputSection{
-    background-color: var(--secondary-black);
+    background-color: var(--secondary-background);
     padding: 3rem;
     border-radius: 0.5rem;
 }
@@ -300,7 +299,7 @@ nav{
 
 .taskBox{
     width: 100%;
-    background-color: var(--secondary-black);
+    background-color: var(--secondary-background);
     display: flex;
     align-items: center;
     justify-content: space-between;
