@@ -21,7 +21,7 @@
             </div>
 
             <div class="theme-toggle">
-                <span>Mode</span>
+                <!-- <span>Light</span> -->
                 <i class="ri-sun-fill"></i>
             </div>
             <!-- <button id="themeBtn">
@@ -194,29 +194,91 @@
     </div>
     <section class="event-demo">
 
-    <h2>Event Propagation Demonstration</h2>
+        <h2>Event Propagation Demonstration</h2>
 
 
-    <div class="demo-box grandparent">
-        Grandparent
+        <div class="demo-box grandparent">
+            Grandparent
 
-        <div class="demo-box parent">
-            Parent
+            <div class="demo-box parent">
+                Parent
 
-            <button class="child-btn">
-                Child Button
-            </button>
+                <button class="child-btn">
+                    Child Button
+                </button>
+            </div>
         </div>
-    </div>
 
-    <h3>Console Output:</h3>
+        <h3>Console Output:</h3>
 
-    <p>Open the browser console and click the child button.</p>
+        <p>Open the browser console and click the child button.</p>
 
-    <button id="bubbleBtn">Enable Bubbling</button>
-    <button id="captureBtn">Enable Capturing</button>
+        <button id="bubbleBtn">Enable Bubbling</button>
+        <button id="captureBtn">Enable Capturing</button>
 
-</section>
+    </section>
+
+    <section class="browser-pipeline">
+
+        <h2>Browser Rendering Pipeline</h2>
+
+        <p>
+            How the browser converts HTML and CSS into pixels on the screen.
+        </p>
+
+        <div class="pipeline-container">
+
+            <div class="pipeline-card">
+                <h3>HTML</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card">
+                <h3>Parsing</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card">
+                <h3>Tokenization</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card">
+                <h3>DOM Tree</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card">
+                <h3>CSS</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card">
+                <h3>CSSOM Tree</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card combine">
+                <h3>DOM + CSSOM</h3>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <div class="pipeline-card render">
+                <h3>Render Tree</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
     <script src="script.js"></script>
 </body>
 

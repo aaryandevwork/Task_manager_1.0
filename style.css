@@ -1,6 +1,7 @@
 :root {
     --primary-blue: #4c68d7;
     --secondary-blue: #2E354B;
+    --hover-blue : #1c3fc9;
     --primary-background : #111;
     --secondary-background : #252525;
     --third-black :rgb(60, 59, 59);
@@ -51,7 +52,7 @@ html,body{
     min-height: 100vh;
     font-size:62.5%;
     font-family: Poppins, sans-serif;
-    background: var(--primary-background);
+    background-color: var(--primary-background);
     color: var(--white);
 }
 
@@ -69,7 +70,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    position: sticky;
+    position: fixed;
     top: 0;
     color: white;
 }
@@ -80,7 +81,7 @@ nav{
     font-size: 2rem;
 }
 .theme-toggle{
-    font-size: 1.5rem;
+    font-size: 3rem;
 
 }
 
@@ -150,11 +151,12 @@ nav{
 /*########################################################################## task content container top side  */
 
 .content{
-    height: 100%;
+    height: 90%;
     width: 85%;
     font-size: 1rem;
     padding: 3rem;
     margin-left: 15%;
+    margin-top: 5%;
 }
 .top-bar{
     display: flex;
@@ -185,6 +187,10 @@ nav{
     border-radius: 0.5rem;
     color: white;
     border: none;
+}
+
+.actions button:hover{
+    background-color: var(--hover-blue);
 }
 
 .filters {
@@ -286,8 +292,13 @@ nav{
     cursor: pointer;
     background-color: var(--primary-blue);
     color: white;
+    transition: all ease-in 0.2s;
 }
 
+#saveInputBtn:hover{
+    background-color: var(--hover-blue);
+    color: white;
+}
 
 /*########################################################################## main task container  */
 
@@ -404,9 +415,9 @@ nav{
 
 /* ################################################################# Event Propagation part */
 .event-demo {
-    width: 82%;
-    margin-left: 17%;
-    margin-top: 4rem;
+    width: 81%;
+    margin-left: 18%;
+    /* margin-top: 2rem; */
     padding: 2rem;
     background: var(--secondary-background);
     border-radius: 10px;
@@ -449,6 +460,10 @@ nav{
     cursor: pointer;
 }
 
+.child-btn:hover{
+    background-color: var(--hover-blue);
+}
+
 #bubbleBtn,
 #captureBtn {
     margin-top: 20px;
@@ -459,4 +474,73 @@ nav{
     background: var(--primary-blue);
     color: white;
     cursor: pointer;
+}
+
+#bubbleBtn:hover {
+    background: var(--hover-blue);
+}
+#captureBtn:hover {
+    background: var(--hover-blue);
+}
+
+
+/* ################################################### event Propagation section */
+.browser-pipeline {
+    width: 81%;
+    margin-left: 18%;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 3rem;
+    background: var(--secondary-background);
+    border-radius: 10px;
+}
+
+.browser-pipeline h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.browser-pipeline p {
+    font-size: 1.6rem;
+    color: gray;
+    margin-bottom: 3rem;
+}
+
+.pipeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pipeline-card {
+    width: 250px;
+    padding: 1.8rem;
+    background: var(--third-black);
+    border-left: 5px solid var(--primary-blue);
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.pipeline-card:hover {
+    transform: translateY(-5px);
+}
+
+.pipeline-card h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: var(--primary-blue);
+}
+
+.combine {
+    border-left-color: orange;
+}
+
+.render {
+    border-left-color: limegreen;
 }

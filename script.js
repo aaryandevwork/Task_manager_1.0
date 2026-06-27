@@ -390,13 +390,11 @@ themeBtn.addEventListener("click", () => {
     if (document.body.classList.contains("light-theme")) {
         localStorage.setItem("theme", "light");
         themeBtn.innerHTML = `
-        <span>Mode</span>
         <i class="ri-moon-fill"></i>
         `;
     } else {
         localStorage.setItem("theme", "dark");
         themeBtn.innerHTML = `
-            <span>Mode</span>
             <i class="ri-sun-fill"></i>
         `;
     }
