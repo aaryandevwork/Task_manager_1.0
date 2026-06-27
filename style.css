@@ -401,3 +401,62 @@ nav{
     text-decoration: line-through;
     opacity: 0.6;
 }
+
+/* ################################################################# Event Propagation part */
+.event-demo {
+    width: 82%;
+    margin-left: 17%;
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--secondary-background);
+    border-radius: 10px;
+}
+
+.event-demo h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.event-demo p,
+.event-demo h3 {
+    font-size: 1.6rem;
+    margin: 1rem 0;
+}
+
+.demo-box {
+    border: 2px solid var(--primary-blue);
+    padding: 30px;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-size: 2rem;
+}
+
+.grandparent {
+    background: var(--primary-background);
+}
+
+.parent {
+    background: var(--secondary-background);
+}
+
+.child-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-blue);
+    color: white;
+    cursor: pointer;
+}
+
+#bubbleBtn,
+#captureBtn {
+    margin-top: 20px;
+    margin-right: 10px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary-blue);
+    color: white;
+    cursor: pointer;
+}

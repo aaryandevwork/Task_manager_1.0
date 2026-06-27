@@ -412,6 +412,109 @@ if (savedTheme === "light") {
     document.body.classList.add("dark-theme");
 }
 
+//Event Propogation : 
+
+const grandparent = document.querySelector(".grandparent");
+const parent = document.querySelector(".parent");
+const child = document.querySelector(".child-btn");
+
+const bubbleBtn = document.querySelector("#bubbleBtn");
+const captureBtn = document.querySelector("#captureBtn");
+
+function grandparentHandler() {
+    console.log("Grandparent");
+}
+
+function parentHandler() {
+    console.log("Parent");
+}
+
+function childHandler() {
+    console.log("Child");
+}
+
+// Enable Bubbling
+bubbleBtn.addEventListener("click", () => {
+
+    grandparent.removeEventListener(
+        "click",
+        grandparentHandler,
+        true
+    );
+
+    parent.removeEventListener(
+        "click",
+        parentHandler,
+        true
+    );
+
+    child.removeEventListener(
+        "click",
+        childHandler,
+        true
+    );
+
+    grandparent.addEventListener(
+        "click",
+        grandparentHandler
+    );
+
+    parent.addEventListener(
+        "click",
+        parentHandler
+    );
+
+    child.addEventListener(
+        "click",
+        childHandler
+    );
+
+    console.clear();
+    console.log("Bubbling Enabled");
+});
+
+
+// Enable Capturing
+captureBtn.addEventListener("click", () => {
+
+    grandparent.removeEventListener(
+        "click",
+        grandparentHandler
+    );
+
+    parent.removeEventListener(
+        "click",
+        parentHandler
+    );
+
+    child.removeEventListener(
+        "click",
+        childHandler
+    );
+
+    grandparent.addEventListener(
+        "click",
+        grandparentHandler,
+        true
+    );
+
+    parent.addEventListener(
+        "click",
+        parentHandler,
+        true
+    );
+
+    child.addEventListener(
+        "click",
+        childHandler,
+        true
+    );
+
+    console.clear();
+    console.log("Capturing Enabled");
+});
+
+
 
 // initial render 
 renderTask();

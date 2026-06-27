@@ -192,6 +192,31 @@
             </div>
         </section>
     </div>
+    <section class="event-demo">
+
+    <h2>Event Propagation Demonstration</h2>
+
+
+    <div class="demo-box grandparent">
+        Grandparent
+
+        <div class="demo-box parent">
+            Parent
+
+            <button class="child-btn">
+                Child Button
+            </button>
+        </div>
+    </div>
+
+    <h3>Console Output:</h3>
+
+    <p>Open the browser console and click the child button.</p>
+
+    <button id="bubbleBtn">Enable Bubbling</button>
+    <button id="captureBtn">Enable Capturing</button>
+
+</section>
     <script src="script.js"></script>
 </body>
 
